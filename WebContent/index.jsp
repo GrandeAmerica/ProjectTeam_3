@@ -27,7 +27,7 @@
     <div class="container themed-container" style="background-color: #4598d3;">
         <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
         <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-          <img src="C:\ktsdev\work\project3team\html\img\예사날logo.png"  class="img" alt="..." height="40" width="40">&nbsp;        
+          <img src="images/예사날logo.png"  class="img" alt="..." height="40" width="40">&nbsp;        
           <span class="fs-4">예사날</span>
         </a>    
 
