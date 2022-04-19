@@ -1,14 +1,10 @@
 package com.team3.dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Date;
 
-import com.team3.dto.MemberVO;
 import com.team3.dto.ReservationVO;
 
 import util.DBManager;
@@ -28,8 +24,8 @@ public class ReservationDAO  {
 	}
 
 
-	public int insertReservation(ReservationDAO rVo) {
-		String sql = "insert into reservation_info values(?,reservation_info_seq.nextval,?,?";
+	public int insertReservation(ReservationVO rVo) {
+		String sql = "insert into reservation_info values(?,reservation_info_seq.nextval(4,0),?,?,?,?";
 		
 		int result = -1;
 		
@@ -46,14 +42,15 @@ public class ReservationDAO  {
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, rVo.getUser_id());
+			
 			pstmt.setInt(2, rVo.getResr_number());
 			pstmt.setString(4, rVo.getResr_user_name());
 			pstmt.setString(5, rVo.getResr_user_tel());
 			pstmt.setString(6, rVo.getResr_store_name());
-			pstmt.setString(7, rVo.getResr_date());
-			pstmt.setString(8, rVo.getResr_time());
+			
+			
 			pstmt.setString(9, rVo.getResr_store_need());
-			pstmt.setString(10, rVo.getResr_usingtime());
+			
 			pstmt.setInt(11, rVo.getResr_person());
 			pstmt.setString(12, rVo.getResr_info());
 			pstmt.setString(13, rVo.getResr_before_info());
