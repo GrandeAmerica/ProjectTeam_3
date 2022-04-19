@@ -2,10 +2,12 @@ package com.team3.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
 
 import com.team3.dto.ReservationVO;
+import com.team3.dto.ProductVO;
 
 import util.DBManager;
 
@@ -48,7 +50,6 @@ public class ReservationDAO  {
 			pstmt.setString(5, rVo.getResr_user_tel());
 			pstmt.setString(6, rVo.getResr_store_name());
 			
-			
 			pstmt.setString(9, rVo.getResr_store_need());
 			
 			pstmt.setInt(11, rVo.getResr_person());
@@ -68,6 +69,40 @@ public class ReservationDAO  {
 		return result;		
 	}
 
+	
+	public ReservationVO detailProduct(String user_id) {
+		String sql = "select * from reservation_info where code=?";
+		ReservationVO pVo = new ReservationVO();
+		
+		int result = -1;
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			conn = DBManager.getConnection();
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, user_id);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				pVo.setUser_id(rs.getString("user_id"));
+				pVo.setResr_number(rs.getInt("resr_number"));
+				pVo.setResr_user_name(rs.getString("resr_user_name"));
+				pVo.setResr_user_tel(rs.getString("resr_user_tel"));
+				pVo.setResr_store_name(rs.getString("resr_store_name"));
+				pVo.setResr_date(rs.getDate("resr_date"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, pstmt, rs);
+		}
+		return pVo;
+	}
 
 
 	
