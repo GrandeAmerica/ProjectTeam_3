@@ -25,54 +25,9 @@ public class ReservationDAO  {
 		
 	}
 
-
-	public int insertReservation(ReservationVO rVo) {
-		String sql = "insert into reservation_info values(?,reservation_info_seq.nextval(4,0),?,?,?,?";
-		
-		int result = -1;
-		
-		Connection conn = null;
-		PreparedStatement pstmt= null;
-		
-		try {
-			// 1. jdbc 드라이버 로드 : forName(className)
-			// 2. 디비 접속을 위한 연결 객체 생성 : getConnection(url, user, password)
-			conn = DBManager.getConnection();
-	
-			// 3. 쿼리문을 실행하기 위한 객체 생성
-//			stmt = conn.createStatement();
-			pstmt = conn.prepareStatement(sql);
-			
-			pstmt.setString(1, rVo.getUser_id());
-			
-			pstmt.setInt(2, rVo.getResr_number());
-			pstmt.setString(4, rVo.getResr_user_name());
-			pstmt.setString(5, rVo.getResr_user_tel());
-			pstmt.setString(6, rVo.getResr_store_name());
-			
-			pstmt.setString(9, rVo.getResr_store_need());
-			
-			pstmt.setInt(11, rVo.getResr_person());
-			pstmt.setString(12, rVo.getResr_info());
-			pstmt.setString(13, rVo.getResr_before_info());
-			
-			
-			// 4. 쿼리 실행 및 결과 처리
-			// executeUpdate(sql)	- insert update delete	
-			result = pstmt.executeUpdate();
-			
-		} catch(SQLException e) {
-			e.printStackTrace();
-		} finally {
-			DBManager.close(conn, pstmt);
-		}		
-		return result;		
-	}
-
-	
 	public ReservationVO detailProduct(String user_id) {
 		String sql = "select * from reservation_info where code=?";
-		ReservationVO pVo = new ReservationVO();
+		ReservationVO rVo = new ReservationVO();
 		
 		int result = -1;
 		
@@ -89,19 +44,25 @@ public class ReservationDAO  {
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-				pVo.setUser_id(rs.getString("user_id"));
-				pVo.setResr_number(rs.getInt("resr_number"));
-				pVo.setResr_user_name(rs.getString("resr_user_name"));
-				pVo.setResr_user_tel(rs.getString("resr_user_tel"));
-				pVo.setResr_store_name(rs.getString("resr_store_name"));
-				pVo.setResr_date(rs.getDate("resr_date"));
+				rVo.setUser_id(rs.getString("user_id"));
+				rVo.setResr_number(rs.getInt("resr_number"));
+				rVo.setResr_user_name(rs.getString("resr_user_name"));
+				rVo.setResr_user_tel(rs.getString("resr_user_tel"));
+				rVo.setResr_store_name(rs.getString("resr_store_name"));
+				rVo.setResr_date(rs.getDate("resr_date"));
+				rVo.setResr_time(rs.getString("resr_time"));
+				rVo.setResr_store_need(rs.getString("resr_store_need"));
+				rVo.setResr_usingtime(rs.getString("resr_usingtime"));
+				rVo.setResr_person(rs.getInt("resr_person"));
+				rVo.setResr_info(rs.getString("resr_info"));
+				rVo.setResr_before_info(rs.getString("resr_before_info"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			DBManager.close(conn, pstmt, rs);
 		}
-		return pVo;
+		return rVo;
 	}
 
 

@@ -10,12 +10,13 @@ public class ReservationVO {
 	private String resr_user_tel;
 	private String resr_store_name;
 	private Date resr_date;
-	private Date resr_time;
+	private String resr_time;
 	private String resr_store_need;
-	private Date resr_usingtime;
+	private String resr_usingtime;
 	private int resr_person;
 	private String resr_info;
 	private String resr_before_info;
+	
 	
 	public String getUser_id() {
 		return user_id;
@@ -53,10 +54,10 @@ public class ReservationVO {
 	public void setResr_date(Date resr_date) {
 		this.resr_date = resr_date;
 	}
-	public Date getResr_time() {
+	public String getResr_time() {
 		return resr_time;
 	}
-	public void setResr_time(Date resr_time) {
+	public void setResr_time(String resr_time) {
 		this.resr_time = resr_time;
 	}
 	public String getResr_store_need() {
@@ -65,10 +66,10 @@ public class ReservationVO {
 	public void setResr_store_need(String resr_store_need) {
 		this.resr_store_need = resr_store_need;
 	}
-	public Date getResr_usingtime() {
+	public String getResr_usingtime() {
 		return resr_usingtime;
 	}
-	public void setResr_usingtime(Date resr_usingtime) {
+	public void setResr_usingtime(String resr_usingtime) {
 		this.resr_usingtime = resr_usingtime;
 	}
 	public int getResr_person() {
@@ -89,8 +90,6 @@ public class ReservationVO {
 	public void setResr_before_info(String resr_before_info) {
 		this.resr_before_info = resr_before_info;
 	}
-	
-	
 	@Override
 	public String toString() {
 		return "ReservationVO [user_id=" + user_id + ", resr_number=" + resr_number + ", resr_user_name="
@@ -99,7 +98,9 @@ public class ReservationVO {
 				+ ", resr_usingtime=" + resr_usingtime + ", resr_person=" + resr_person + ", resr_info=" + resr_info
 				+ ", resr_before_info=" + resr_before_info + "]";
 	}
-
+	
+	
+	
 	
 	
 	
