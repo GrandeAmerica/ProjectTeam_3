@@ -25,8 +25,48 @@ public class ReservationDAO  {
 		
 	}
 
+
+	public int insertReservation(ReservationVO rVo) {
+		Date date = new Date();
+		String sql = "insert into reservation_info values(?,reservation_info_seq.nextval(4,0),?,?,?,?,?";
+		
+		int result = -1;
+		
+		Connection conn = null;
+		PreparedStatement pstmt= null;
+		
+		try {
+			// 1. jdbc 드라이버 로드 : forName(className)
+			// 2. 디비 접속을 위한 연결 객체 생성 : getConnection(url, user, password)
+			conn = DBManager.getConnection();
+	
+			// 3. 쿼리문을 실행하기 위한 객체 생성
+//			stmt = conn.createStatement();
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, rVo.getResr_time());
+			pstmt.setString(2, rVo.getResr_store_need());	
+			pstmt.setString(3, rVo.getResr_usingtime());
+			pstmt.setInt(4, rVo.getResr_person());
+			pstmt.setString(5, rVo.getResr_info());
+			pstmt.setString(6, rVo.getResr_before_info());
+			
+			
+			// 4. 쿼리 실행 및 결과 처리
+			// executeUpdate(sql)	- insert update delete	
+			result = pstmt.executeUpdate();
+			
+		} catch(SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, pstmt);
+		}		
+		return result;		
+	}
+
+	
 	public ReservationVO detailProduct(String user_id) {
-		String sql = "select * from reservation_info where code=?";
+		String sql = "select * from reservation_info where user_id=?";
 		ReservationVO rVo = new ReservationVO();
 		
 		int result = -1;
@@ -56,6 +96,7 @@ public class ReservationDAO  {
 				rVo.setResr_person(rs.getInt("resr_person"));
 				rVo.setResr_info(rs.getString("resr_info"));
 				rVo.setResr_before_info(rs.getString("resr_before_info"));
+				
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -64,7 +105,6 @@ public class ReservationDAO  {
 		}
 		return rVo;
 	}
-
 
 	
 }

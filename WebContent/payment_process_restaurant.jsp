@@ -50,7 +50,8 @@
         <div class="row">
             <div class="col">
                 <ul class="list-group">
-                    <li class="list-group-item text-center" style="background-color: skyblue;"> 업체명</li>
+                    <li class="list-group-item text-center" style="background-color: skyblue;"> ${reservation_info.resr_store_name}</li>
+                    
                     <li class="list-group-item">예약한 날짜 <input type="date"><br>
                     </li>
                     <li class="list-group-item">예약시간<input type="time" class="step 30"><br>
@@ -65,8 +66,7 @@
               <div class="col">
                     <ul class="list-group">
                         <li class="list-group-item text-center" style="background-color: skyblue; ">결제 시 안내 사항</li>
-                        <textarea style="height: 220px;"> 강아지 출입금지 / 잡상인 출입금지 / 환불 불가 사항 / 환불 패널티 안내
-                        </textarea>   
+                        <td>${reservation_info.resr_store_need }</td>
                     </ul>
                 </div>
               </div>
@@ -80,21 +80,21 @@
                               <tbody>
                                 <tr>
                                   <th scope="row">1</th>
-                                  <td>짜장면</td>
+                                  <td>${reservation_info.resr_info }</td>
                                   <td>
                                     <input type="number" id="carousel_number" min=1 max=10 value="0" >
                                   </td>  
                                 </tr>
                                 <tr>
                                   <th scope="row">2</th>
-                                  <td>짬뽕</td>
+                                  <td>${reservation_info.resr_info }</td>
                                   <td>
                                     <input type="number" id="carousel_number" min=1 max=10 value="0" >
                                   </td> 
                                 </tr>
                                 <tr>
                                   <th scope="row">3</th>
-                                  <td>탕수육</td>
+                                  <td>${reservation_info.resr_info }</td>
                                   <td>
                                     <input type="number" id="carousel_number" min=1 max=10 value="0" >
                                   </td> 
