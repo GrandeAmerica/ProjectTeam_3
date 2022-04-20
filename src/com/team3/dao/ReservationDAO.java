@@ -28,7 +28,7 @@ public class ReservationDAO  {
 
 	public int insertReservation(ReservationVO rVo) {
 		
-		String sql = "insert into reservation_info values(?,reservation_info_seq.nextval(4,0),?,?,?,?,?";
+		String sql = "insert into reservation_info values(?,reservation_info_seq.nextval(4,0),?,?,?,?,?,?";
 		
 		int result = -1;
 		
@@ -45,6 +45,7 @@ public class ReservationDAO  {
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, rVo.getResr_date());
+			
 			pstmt.setString(2, rVo.getResr_time());
 			pstmt.setString(3, rVo.getResr_store_need());	
 			pstmt.setString(4, rVo.getResr_usingtime());

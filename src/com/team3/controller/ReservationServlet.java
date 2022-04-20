@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,9 +12,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.team3.dto.ReservationVO;
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.team3.dao.MemberDAO;
+import com.team3.dao.ReservationDAO;
 import com.team3.dto.MemberVO;
+import com.team3.dto.ReservationVO;
 
 
 @WebServlet("/Reservation.do")
@@ -41,47 +45,47 @@ String url = "reservation_process_restaurant.jsp";
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();		
 		
-		String userid = request.getParameter("userid");
-		String pwd = request.getParameter("pwd");		
-		
-		//MemberDAO mDao = new MemberDAO();
-		MemberDAO mDao = MemberDAO.getInstance();		
-
-		// 포워딩 방식으로 페이지 이동
-		String url = "member/login.jsp";	
-
-		int result = mDao.checkUser(userid, pwd);
-				
-		if (result == 1) {
-			// DB에서 회원정보(이름 포함)을 가져와서 저장하는 구문 작성
-			MemberVO mVo = mDao.getMember(userid);
-//			System.out.println(mVo.getUserid());
-			
-			HttpSession session = request.getSession();	// 세션 객체 생성
-			session.setAttribute("loginUser", mVo);		// 회원 정보를 세션에 저장
-			
-			request.setAttribute("message", "인증이 완료되었습니다.");
-			url = "main.jsp";
-		} else if (result == 0) {
-			
-			request.setAttribute("message", "비밀번호가 맞지 않습니다.");
-		} else {
-			
-			request.setAttribute("message", "존재하지 않는 회원입니다.");
-		}	
-		
-		
-		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
-		dispatcher.forward(request, response);
-		
-		
-		
 		ReservationVO rVo = new ReservationVO();
 		
+		ServletContext context = getServletContext();
+		
+		String encType = "UTF-8";
+		
+		
+		try {
+			MultipartRequest multi = new MultipartRequest(request, encType, 0, new DefaultFileRenamePolicy());
+			
+			String name = multi.getParameter("name");
+			int price = Integer.parseInt(multi.getParameter("price"));
+			String pictureurl = multi.getFilesystemName("pictureurl");
+			String description = multi.getParameter("description");
+
+//			rVo.setName(name);
+//			rVo.setPrice(price);
+//			rVo.setPictureurl(pictureurl);
+//			rVo.setDescription(description);
+
+		} catch(Exception e) {
+			System.out.println("예외 발생 : " + e);
+		}
 		
 		
 		
+		ReservationDAO rDao = ReservationDAO.getInstance();
+		
+		int result = rDao.insertReservation(rVo);
+		
+		if (result == 1) {
+			System.out.println("상품 등록에 성공했습니다.");
+			request.setAttribute("message", "상품 등록에 성공했습니다.");
+		} else {
+			System.out.println("상품 등록에 실패했습니다.");
+			request.setAttribute("message", "상품 등록에 실패했습니다.");
+		}
+		
+		response.sendRedirect("productList.do");
 		
 	}
+	
 
 }
