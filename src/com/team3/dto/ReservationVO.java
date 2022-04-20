@@ -9,14 +9,13 @@ public class ReservationVO {
 	private String resr_user_name;
 	private String resr_user_tel;
 	private String resr_store_name;
-	private Date resr_date;
+	private String resr_date;
 	private String resr_time;
 	private String resr_store_need;
 	private String resr_usingtime;
 	private int resr_person;
 	private String resr_info;
 	private String resr_before_info;
-	
 	
 	public String getUser_id() {
 		return user_id;
@@ -48,10 +47,10 @@ public class ReservationVO {
 	public void setResr_store_name(String resr_store_name) {
 		this.resr_store_name = resr_store_name;
 	}
-	public Date getResr_date() {
+	public String getResr_date() {
 		return resr_date;
 	}
-	public void setResr_date(Date resr_date) {
+	public void setResr_date(String resr_date) {
 		this.resr_date = resr_date;
 	}
 	public String getResr_time() {
@@ -90,6 +89,7 @@ public class ReservationVO {
 	public void setResr_before_info(String resr_before_info) {
 		this.resr_before_info = resr_before_info;
 	}
+	
 	@Override
 	public String toString() {
 		return "ReservationVO [user_id=" + user_id + ", resr_number=" + resr_number + ", resr_user_name="
@@ -98,6 +98,9 @@ public class ReservationVO {
 				+ ", resr_usingtime=" + resr_usingtime + ", resr_person=" + resr_person + ", resr_info=" + resr_info
 				+ ", resr_before_info=" + resr_before_info + "]";
 	}
+	
+	
+	
 	
 	
 	

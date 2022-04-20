@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Date;
+import java.sql.Date;
 
 import com.team3.dto.ReservationVO;
 import com.team3.dto.ProductVO;
@@ -27,7 +27,7 @@ public class ReservationDAO  {
 
 
 	public int insertReservation(ReservationVO rVo) {
-		Date date = new Date();
+		
 		String sql = "insert into reservation_info values(?,reservation_info_seq.nextval(4,0),?,?,?,?,?";
 		
 		int result = -1;
@@ -44,12 +44,13 @@ public class ReservationDAO  {
 //			stmt = conn.createStatement();
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(1, rVo.getResr_time());
-			pstmt.setString(2, rVo.getResr_store_need());	
-			pstmt.setString(3, rVo.getResr_usingtime());
-			pstmt.setInt(4, rVo.getResr_person());
-			pstmt.setString(5, rVo.getResr_info());
-			pstmt.setString(6, rVo.getResr_before_info());
+			pstmt.setString(1, rVo.getResr_date());
+			pstmt.setString(2, rVo.getResr_time());
+			pstmt.setString(3, rVo.getResr_store_need());	
+			pstmt.setString(4, rVo.getResr_usingtime());
+			pstmt.setInt(5, rVo.getResr_person());
+			pstmt.setString(6, rVo.getResr_info());
+			pstmt.setString(7, rVo.getResr_before_info());
 			
 			
 			// 4. 쿼리 실행 및 결과 처리
@@ -89,7 +90,7 @@ public class ReservationDAO  {
 				rVo.setResr_user_name(rs.getString("resr_user_name"));
 				rVo.setResr_user_tel(rs.getString("resr_user_tel"));
 				rVo.setResr_store_name(rs.getString("resr_store_name"));
-				rVo.setResr_date(rs.getDate("resr_date"));
+				rVo.setResr_date(rs.getString("resr_date"));
 				rVo.setResr_time(rs.getString("resr_time"));
 				rVo.setResr_store_need(rs.getString("resr_store_need"));
 				rVo.setResr_usingtime(rs.getString("resr_usingtime"));
