@@ -3,7 +3,6 @@ package com.team3.dto;
 import java.util.Date;
 
 public class ReservationVO {
-	
 	private String user_id;
 	private int resr_number;
 	private String resr_user_name;
