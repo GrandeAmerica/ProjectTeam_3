@@ -20,6 +20,12 @@ public class reservationDAO {
 		return instance;
 	}
 	
+	
+	
+	
+	
+	
+	
 	public List<N_reservationVO> reservationList(String user_id) {
 		String sql = "select * from reservation_info where user_id=?";
 		
