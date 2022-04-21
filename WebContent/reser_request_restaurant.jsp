@@ -27,7 +27,7 @@
   </head>
  
   <body>
-    
+     <form method ="post" action="../reservation.do">
     <!-- <header> -->
     
     <div class="container themed-container" style="background-color: #6ab1e4;">
@@ -50,16 +50,16 @@
         <div class="row">
             <div class="col">
                 <ul class="list-group">
-                    <li class="list-group-item text-center" style="background-color: skyblue;"> 업체명</li>
-                    <li class="list-group-item">날짜선택 <input type="date"><br>
+                    <li class="list-group-item text-center" style="background-color: skyblue;"> ${reservation_info.resr_store_name}</li>
+                    <li class="list-group-item">날짜선택 <input type="date" name="resr_date"><br>
          
                     </li>
-                    <li class="list-group-item">시간선택 <input type="time" class="step 30"><br>
+                    <li class="list-group-item">시간선택 <input type="time" class="step 30" name="resr_time"><br>
                         
                     </li>
-                    <li class="list-group-item">인원 수 &nbsp; <input type="number" id="carousel_number" min=1 max=10 value="1" > </li>
+                    <li class="list-group-item">인원 수 &nbsp; <input type="number" id="carousel_number" min=1 max=10 value="1" name="resr_person" > </li>
                     <li class="list-group-item">요청사항 <br>
-                        <textarea class="col-12"></textarea></li>
+                        <textarea class="col-12">${reservation_info.resr_before_info}</textarea></li>
                   </ul>
                 </div>
                 <div class="col-2"> </div>
@@ -67,9 +67,7 @@
               <div class="col">
                     <ul class="list-group">
                         <li class="list-group-item text-center" style="background-color: skyblue; ">예약 시 안내 사항</li>
-                        <textarea style="height: 220px;">his is some placeholder content for the scrollspy page. Note that as you scroll down the page, the appropriate navigation link is highlighted. It's repeated throughout the component example. We keep adding some more example copy here to emphasize the scrolling and highlighting.
-                            Second headingThis is some placeholder content for the scrollspy page. Note that as you scroll down the page, the appropriate navigation link is highlighted. It's repeated throughout the component example. We keep adding some more example copy here to emphasize the scrolling and highlighting.</h4>
-                        </textarea>   
+                        <textarea style="height: 220px;"><h4>${reservation_info.resr_store_need}</h4> </textarea>   
                     </ul>
                 </div>
             </div>
@@ -91,7 +89,7 @@
                               <tbody>
                                 <tr>
                                   <th scope="row">1</th>
-                                  <td>짜장면</td>
+                                  <td>${reservation_info.resr_info }</td>
                                   <td>7000</td>
                                   <td><div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
@@ -102,7 +100,7 @@
                                 </tr>
                                 <tr>
                                   <th scope="row">2</th>
-                                  <td>짬뽕</td>
+                                  <td>${reservation_info.resr_info }</td>
                                   <td>9000</td>
                                   <td><div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
@@ -113,7 +111,7 @@
                                 </tr>
                                 <tr>
                                   <th scope="row">3</th>
-                                  <td>탕수육</td>
+                                  <td>${reservation_info.resr_info }</td>
                                   <td>7000</td>
                                   <td><div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
@@ -132,8 +130,7 @@
                   <div class="col">
                         <ul class="list-group">
                             <li class="list-group-item text-center" style="background-color: skyblue; ">예약부도 시 패널티 약관</li>
-                            <textarea style="height: 220px;">his is some placeholder content for the scrollspy page. Note that as you scroll down the page, the appropriate navigation link is highlighted. It's repeated throughout the component example. We keep adding some more example copy here to emphasize the scrolling and highlighting.
-                                Second headingThis is some placeholder content for the scrollspy page. Note that as you scroll down the page, the appropriate navigation link is highlighted. It's repeated throughout the component example. We keep adding some more example copy here to emphasize the scrolling and highlighting.</h4>
+                            <textarea style="height: 220px;"><h4>${reservation_info.resr_store_need}</h4>
                             </textarea>
                             <p>동의하시겠습니까? <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
                                 <label class="form-check-label" for="flexCheckDefault"></p>
@@ -143,7 +140,8 @@
                 </div>
                 <div class="p-5 row"> 
                     <div class="d-grid gap-2 col-3 mx-auto">
-                        <button class="btn btn-primary" type="button">예약하기</button>
+                        <button class="btn btn-primary" type="submit">예약하기</button>
+                        
                       </div>
 
     <!-- <footer> -->
@@ -158,7 +156,8 @@
           <button type="button" class="btn btn-secondary">회사소개</button>&nbsp;           
         </ul>
       </footer>
-    </div>   
+    </div> 
+    </form>  
   </body>
 </html>      
 

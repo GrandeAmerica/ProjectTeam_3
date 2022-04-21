@@ -27,7 +27,7 @@
   </head>
  
   <body>
-    <form method ="post" action="payment.do">
+    <form method ="post" action="payment.do" enctype="multipart/form-data">
     <!-- <header> -->
     
     <div class="container themed-container" style="background-color: #6ab1e4;">

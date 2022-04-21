@@ -52,13 +52,13 @@
                 <ul class="list-group">
                     <li class="list-group-item text-center" style="background-color: skyblue;"> ${reservation_info.resr_store_name}</li>
                     
-                    <li class="list-group-item">예약한 날짜 <input type="date"><br>
+                    <li class="list-group-item">예약한 날짜 <input type="date" name="resr_date"><br>
                     </li>
-                    <li class="list-group-item">예약시간<input type="time" class="step 30"><br>
+                    <li class="list-group-item">예약시간<input type="time" class="step 30" name="resr_time"><br>
                     </li>
-                    <li class="list-group-item">인원 수 &nbsp; <input type="number" id="carousel_number" min=1 max=10 value="1" > </li>
+                    <li class="list-group-item">인원 수 &nbsp; <input type="number" id="carousel_number" min=1 max=10 value="1" name="resr_person"> </li>
                     <li class="list-group-item">요청사항 <br>
-                        <textarea class="col-12"></textarea></li>
+                        <textarea class="col-12">${reservation_info.resr_before_info}</textarea></li>
                   </ul>
                 </div>
                 <div class="col-2"> </div>

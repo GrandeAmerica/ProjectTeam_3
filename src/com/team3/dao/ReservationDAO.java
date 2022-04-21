@@ -1,13 +1,12 @@
 package com.team3.dao;
 
 import java.sql.Connection;
+import java.util.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Date;
 
 import com.team3.dto.ReservationVO;
-import com.team3.dto.ProductVO;
 
 import util.DBManager;
 
@@ -39,16 +38,17 @@ public class ReservationDAO  {
 			// 1. jdbc 드라이버 로드 : forName(className)
 			// 2. 디비 접속을 위한 연결 객체 생성 : getConnection(url, user, password)
 			conn = DBManager.getConnection();
-	
+			
+			
 			// 3. 쿼리문을 실행하기 위한 객체 생성
 //			stmt = conn.createStatement();
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(1, rVo.getResr_date());
+			pstmt.setDate(1, rVo.getResr_date());
 			
-			pstmt.setString(2, rVo.getResr_time());
+			pstmt.setDate(2, rVo.getResr_time());
 			pstmt.setString(3, rVo.getResr_store_need());	
-			pstmt.setString(4, rVo.getResr_usingtime());
+			pstmt.setDate(4, rVo.getResr_usingtime());
 			pstmt.setInt(5, rVo.getResr_person());
 			pstmt.setString(6, rVo.getResr_info());
 			pstmt.setString(7, rVo.getResr_before_info());
@@ -91,10 +91,10 @@ public class ReservationDAO  {
 				rVo.setResr_user_name(rs.getString("resr_user_name"));
 				rVo.setResr_user_tel(rs.getString("resr_user_tel"));
 				rVo.setResr_store_name(rs.getString("resr_store_name"));
-				rVo.setResr_date(rs.getString("resr_date"));
-				rVo.setResr_time(rs.getString("resr_time"));
+				rVo.setResr_date(rs.getDate("resr_date"));
+				rVo.setResr_time(rs.getDate("resr_time"));
 				rVo.setResr_store_need(rs.getString("resr_store_need"));
-				rVo.setResr_usingtime(rs.getString("resr_usingtime"));
+				rVo.setResr_usingtime(rs.getDate("resr_usingtime"));
 				rVo.setResr_person(rs.getInt("resr_person"));
 				rVo.setResr_info(rs.getString("resr_info"));
 				rVo.setResr_before_info(rs.getString("resr_before_info"));

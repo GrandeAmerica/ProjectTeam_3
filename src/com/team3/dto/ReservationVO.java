@@ -1,6 +1,6 @@
 package com.team3.dto;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class ReservationVO {
 	private String user_id;
@@ -8,10 +8,10 @@ public class ReservationVO {
 	private String resr_user_name;
 	private String resr_user_tel;
 	private String resr_store_name;
-	private String resr_date;
-	private String resr_time;
+	private Date resr_date;
+	private Date resr_time;
 	private String resr_store_need;
-	private String resr_usingtime;
+	private Date resr_usingtime;
 	private int resr_person;
 	private String resr_info;
 	private String resr_before_info;
@@ -46,16 +46,16 @@ public class ReservationVO {
 	public void setResr_store_name(String resr_store_name) {
 		this.resr_store_name = resr_store_name;
 	}
-	public String getResr_date() {
+	public Date getResr_date() {
 		return resr_date;
 	}
-	public void setResr_date(String resr_date) {
+	public void setResr_date(Date resr_date) {
 		this.resr_date = resr_date;
 	}
-	public String getResr_time() {
+	public Date getResr_time() {
 		return resr_time;
 	}
-	public void setResr_time(String resr_time) {
+	public void setResr_time(Date resr_time) {
 		this.resr_time = resr_time;
 	}
 	public String getResr_store_need() {
@@ -64,10 +64,10 @@ public class ReservationVO {
 	public void setResr_store_need(String resr_store_need) {
 		this.resr_store_need = resr_store_need;
 	}
-	public String getResr_usingtime() {
+	public Date getResr_usingtime() {
 		return resr_usingtime;
 	}
-	public void setResr_usingtime(String resr_usingtime) {
+	public void setResr_usingtime(Date resr_usingtime) {
 		this.resr_usingtime = resr_usingtime;
 	}
 	public int getResr_person() {
@@ -97,6 +97,8 @@ public class ReservationVO {
 				+ ", resr_usingtime=" + resr_usingtime + ", resr_person=" + resr_person + ", resr_info=" + resr_info
 				+ ", resr_before_info=" + resr_before_info + "]";
 	}
+	
+	
 	
 	
 	
