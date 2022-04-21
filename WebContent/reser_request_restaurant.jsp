@@ -27,7 +27,7 @@
   </head>
  
   <body>
-     <form method ="post" action="/reservation.do">
+     <form method ="post" action="reservation.do">
     <!-- <header> -->
     
     <div class="container themed-container" style="background-color: #6ab1e4;">
@@ -89,8 +89,8 @@
                               <tbody>
                                 <tr>
                                   <th scope="row">1</th>
-                                  <td>${reservation_info.resr_info }</td>
-                                  <td>7000</td>
+                                  <td>${reservation_info.resr_info}</td>
+                                  
                                   <td><div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                                     <label class="form-check-label" for="flexCheckDefault">
@@ -100,8 +100,8 @@
                                 </tr>
                                 <tr>
                                   <th scope="row">2</th>
-                                  <td>${reservation_info.resr_info }</td>
-                                  <td>9000</td>
+                                  <td>${reservation_info.resr_info}</td>
+                                 
                                   <td><div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                                     <label class="form-check-label" for="flexCheckDefault">
@@ -111,8 +111,8 @@
                                 </tr>
                                 <tr>
                                   <th scope="row">3</th>
-                                  <td>${reservation_info.resr_info }</td>
-                                  <td>7000</td>
+                                  <td>${reservation_info.resr_info}</td>
+                                  
                                   <td><div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                                     <label class="form-check-label" for="flexCheckDefault">
