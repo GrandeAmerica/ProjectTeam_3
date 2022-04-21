@@ -11,12 +11,12 @@ import com.team3.dto.N_reservationVO;
 
 import util.DBManager;
 
-public class ReservationDAO {
-	private ReservationDAO() {}
+public class reservationDAO {
+	private reservationDAO() {}
 	
-	private static ReservationDAO instance = new ReservationDAO();
+	private static reservationDAO instance = new reservationDAO();
 	
-	public static ReservationDAO getInstance() {
+	public static reservationDAO getInstance() {
 		return instance;
 	}
 	

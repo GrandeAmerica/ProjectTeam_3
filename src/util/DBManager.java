@@ -15,6 +15,7 @@ public class DBManager {
 	public static Connection getConnection(){
 		Connection conn = null;
 				
+<<<<<<< HEAD
 //		// 1. jdbc 드라이버 로드 : forName(className)
 //		try {
 //			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -27,6 +28,20 @@ public class DBManager {
 //			conn = DriverManager.getConnection(
 //					"jdbc:oracle:thin:@localhost:1521:orcl",
 //					"ora_user",	"1234");
+=======
+		// 1. jdbc 드라이버 로드 : forName(className)
+//		try {
+//			Class.forName("oracle.jdbc.driver.OracleDriver");
+//		} catch (ClassNotFoundException e) {
+//			e.printStackTrace();
+//		}
+//
+//		// 2. 디비 접속을 위한 연결 객체 생성 : getConnection(url, user, password)
+//		try {
+//			conn = DriverManager.getConnection(
+//					"jdbc:oracle:thin:@localhost:1521:xe",
+//					"tae",	"tae");
+>>>>>>> refs/remotes/develop/develop
 //		} catch (SQLException e) {
 //			// TODO Auto-generated catch block
 //			e.printStackTrace();

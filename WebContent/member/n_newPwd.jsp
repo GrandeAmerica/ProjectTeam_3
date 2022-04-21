@@ -56,84 +56,60 @@
 	            <button type="button" onclick="location.href='member/memchoice.jsp'" class="btn btn-secondary">회원가입</button> 
 	            <%
 			}
-%> 
+%>   
             </ul>
         </header>
     </div>
 
     <main>
-        <h2 class="text-center fw-bold p-5 ">일반 회원가입</h2>
-        <div class="container">
-            <form action="N_sign_upServlet" method="post" name="frm">
-
-                <div class="row">
-                    <div class="col-3"></div>
-                    <div class="col">
-                        <tr>
-                        	<td>
-	                        	<label for="exampleInputEmail1" class="form-label">아이디</label>
-	                            <div class="col input-group">
-	                                <input type="text" class="form-control" name="user_id" value="" readonly>
-	                                <button type="button" class="btn btn-primary" onclick="idCheck()">중복확인</button>
-	                            </div>
-                        	</td>
-                            <div class="p-3"></div>
-                            <td>
-	                            <label for="exampleInputEmail1" class="form-label">비밀번호</label>
-	                            <input type="password" class="form-control" name="member_n_pwd" id="pwd" onchange="check_pwd()">
-	                            <span id="check1"></span>
-							</td>
-                            <div class="p-3"></div>
-                            <td>
-	                            <label for="exampleInputEmail1" class="form-label">비밀번호 확인</label>
-	                            <input type="password" class="form-control" name="member_n_pwdCheck" id="pw2" onchange="check_pwd()">
-	                            <span id="check"></span>
-                            </td>	
-                            <div class="p-3"></div>
-                            <td>
-	                            <label for="exampleInputEmail1" class="form-label">이름</label>
-	                            <input type="text" class="form-control" name="member_n_name">
-                            </td>
-                            <div class="p-3"></div>
-							<td>
-	                            <label for="exampleInputEmail1" class="form-label">이메일</label>
-	                            <div class="col input-group">
-	                                <input type="text" class="form-control" name="member_n_email">	
-	                                <button type="button" class="btn btn-primary">인증번호 발송</button>
-	                            </div>
-                            </td>
-                            <div class="p-3"></div>
-                            <td>
-	                            <div class="col input-group">
-	                                <input type="text" class="form-control" name="member_n_emailCheck">	
-	                                <button type="button" class="btn btn-primary">인증확인</button>
-	                            </div>
-							</td>
-                            <div class="p-3"></div>
-                            <td>
-	                            <label for="exampleInputEmail1" class="form-label">전화번호</label>
-	                            <input type="text" class="form-control" name="member_n_tel">	
-                            </td>
-                        </tr>
-                    </div>
-                    <div class="col-3"></div>
+        <div class="container col-lg-5">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <h3 class="nav-link active">비밀번호 찾기</h3>
+                </li>               
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active">
+                    
+                    <form action="N_newpwdServlet" method="post">
+                        <div class="p-4"></div>
+                        <div class="row">
+                            <div class="col-3"></div>
+                            <div class="col">
+                            	<td>
+                                    <input type="text" class="form-control" name="user_id" value="<%=request.getAttribute("user_id")%>" hidden>	
+                                </td>
+                                <td>
+                                    <label class="form-label">새 비밀번호</label>
+                                    <input type="text" class="form-control" name="member_n_pwd" id="pwd" onchange="check_pwd()">	
+                                    <span id="check1"></span>
+                                </td>
+                                <div class="p-2"></div>
+                                <td>
+                                    <label class="form-label">비밀번호 확인</label>
+                                    <input type="text" class="form-control" name="member_n_pwdCheck" id="pw2" onchange="check_pwd()">	
+                                    <span id="check"></span>
+                                </td>
+                            </div>
+                            <div class="col-3"></div>
+                        </div>
+                        
+                        <div class="p-5"></div>
+                        <div class="text-end">
+                            <button type="submit" class="btn btn-secondary">비밀번호 변경</button>
+                        </div>
+                    </form>
                 </div>
-
-                <div class="p-5"></div>
-                <div class="text-end">
-                    <button type="submit" class="btn btn-secondary">가입하기</button>
-                </div>
-            </form>
-        </div>
+            </div>
+        </div> 
     </main>
-
     <div class="p-3"></div>
     <div class="container themed-container" style="background-color: #dfe3e6;">
         <footer class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
 <!--         <footer class="py-3 my-4"> -->
             <ul class="nav nav-pills">
-                <button type="button" class="btn btn-secondary">고객센터</button>&nbsp;
-                <button type="button" class="btn btn-secondary">회사소개</button>&nbsp;
+                <button type="button" class="btn btn-secondary">고객센터</button>&nbsp;           
+                <button type="button" class="btn btn-secondary">회사소개</button>&nbsp;           
             </ul>
         </footer>
     </div> 

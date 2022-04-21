@@ -24,8 +24,6 @@
     <link href="../css/footers.css" rel="stylesheet">    
 
     <link href="../css/reset.css" rel="stylesheet">
-    
-    <script type="text/javascript" src="../js/member.js"></script>
 </head>
  
 <body>   
@@ -56,13 +54,15 @@
 	            <button type="button" onclick="location.href='memchoice.jsp'" class="btn btn-secondary">회원가입</button> 
 	            <%
 			}
-%>                
+%>             
             </ul>
         </header>
     </div>
 
     <main>
-        <div class="container col-lg-5">
+    	<div class="container col-lg-5">
+            <h6 class="h1">아이디 찾기</h6>
+            <div class="p-2"></div>
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
                     <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">일반회원</button>
@@ -71,46 +71,46 @@
                     <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">사업자회원</button>
                 </li>               
             </ul>
+            <div class="p-2"></div>
             <div class="tab-content" id="myTabContent">
                 <div class="container tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                    <form action="../N_loginServlet" method="post" name="nfrm">
-                        <div class="p-2"></div>
-                        <div class="row align-items-center">
-                            <div class="col-sm-8">
-                                    <label class="form-label">Id</label>
-                                    <input type="text" class="form-control" name="member_n_id">	
-                                    <label class="form-label">Password</label>
-                                    <input type="password" class="form-control" name="member_n_pwd">
-                            </div>
+                    <form action="../N_findIdServlet" method="post">
+                        <div class="row">
+                            <div class="col-1"></div>
                             <div class="col">
-                                <button type="submit" class="btn btn-secondary" onclick="return n_login()">로그인</button>
+                                <td class="row align-items-center">
+                                    <label for="exampleInputEmail1" class="form-label">이메일</label>
+                                    <div class="col input-group">
+                                    <input type="text" class="form-control" id="n" name="member_n_email">	
+                                    
+                                        <button type="submit" class="btn btn-secondary">전 송</button>            
+                                    </div>
+                                </td>
                             </div>
-                        </div>     
+                            <div class="col-1"></div>
+                        </div>
                     </form>
                 </div>
                 <div class="container tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                    <form action="../B_loginServlet" method="post" name="bfrm">
-                        <div class="p-2"></div>
-                        <div class="row align-items-center">
-                            <div class="col-sm-8">
-                                <label class="form-label">Id</label>
-                                <input type="text" class="form-control" name="member_b_id">	
-                                <label class="form-label">Password</label>
-                                <input type="password" class="form-control" name="member_b_pwd">
-                            </div>
+                    <form action="../B_findIdServlet" method="post">
+                        <div class="row">
+                            <div class="col-1"></div>
                             <div class="col">
-                                <button type="submit" class="btn btn-secondary" onclick="return b_login()">로그인</button>
+                                <td class="row align-items-center">
+                                    <label for="exampleInputEmail1" class="form-label">이메일</label>
+                                    <div class="col input-group">
+                                    <input type="text" class="form-control" id="b" name="member_b_email">	
+                                    
+                                        <button type="submit" class="btn btn-secondary">전 송</button>            
+                                    </div>
+                                </td>
                             </div>
-                        </div>     
+                            <div class="col-1"></div>
+                        </div>
                     </form>
                 </div>
             </div>
-            <div class="p-2"></div>
-            <div class="findidpwd">
-                <a href="findid.jsp">아이디</a>/<a href="findpwd.jsp">패스워드</a>찾기
-            </div>
         </div>
-        
     </main>
     <div class="p-3"></div>
     <div class="container themed-container" style="background-color: #dfe3e6;">
@@ -123,51 +123,7 @@
         </footer>
     </div> 
 
-<<<<<<< HEAD
-    <script src="./js/bootstrap.bundle.min.js"></script>     
-=======
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>로그인</title>
-<script type="text/javascript" src="script/member.js"></script>
-</head>
-<body>
-
-<h2>로그인</h2>
-<form method="post" action="login.do" name="frm">
-	
-<table>
-	<tr>
-		<td>아이디</td>
-		<td>
-			<input type="text" name="userid">
-		</td>
-	</tr>
-	<tr>
-		<td>암 호</td>
-		<td>
-			<input type="password" name="pwd">
-		</td>
-	</tr>
-	<tr>
-		<td colspan="2" align="center">
-			<input type="submit" value="로그인" onclick="return checkLogin()">
-			<input type="reset" value="취소">
-			<input type="button" value="회원가입" onclick="location.href='join.do'">
-		</td>
-	</tr>
-</table>
-	
-	
-</form>
-
->>>>>>> branch 'part3' of https://github.com/taeskkim/ProjectTeam_3.git
-=======
-    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
->>>>>>> refs/remotes/develop/develop
 </body>
 </html>
